@@ -1,0 +1,3 @@
+Hi {{ username }},
+
+Please verify your email address by clicking the button below.

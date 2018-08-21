@@ -29,29 +29,32 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="#"><b>Login</b></a>
+        <a href="#"><b>Email registration</b></a>
       </div><!-- /.login-logo -->
 
 
+
+
       <div class="login-box-body">
-           {% for message in messages %}
+          {% for message in messages %}
         <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
         {% endfor %}
-        <p class="login-box-msg">Sign in to start your session</p>
-        <form action="{% url 'account:login' %}" method="post">
+        <form action="{% url 'account:save_email' %}" method="post">
           {% csrf_token %} <!-- Protect Against Cross Site Request Forgeries (CSRF)-->
           <div class="form-group has-feedback">
-            <input type="text" name="username" class="form-control" maxlength="40" placeholder="Username" required>
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            <input type="email" name="email" class="form-control" maxlength="40" placeholder="Enter your email address">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
+
           <div class="form-group has-feedback">
-            <input type="password" name="password" class="form-control" maxlength="16" placeholder="Password" required>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <input type="hidden" name="account_id" value="{{account_id}}" class="form-control">
           </div>
+
+
           <div class="row">
              <div class="col-xs-3"></div>
             <div class="col-xs-6">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Save</button>
             </div><!-- /.col -->
               <div class="col-xs-3"></div>
           </div>
@@ -59,7 +62,7 @@
 
 
          <br/>
-        <a href="{% url 'account:register'%}"  class="text-center">Register a new account</a>
+
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
