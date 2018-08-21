@@ -43,4 +43,11 @@ the following tools
    
    http://localhost:8000/
    
-   NB: The development server runs on port 8000 by default   
+   NB: The development server runs on port 8000 by default  
+
+### Running tests
+In a terminal navigate to the root directory of the project containing the manage.py file, 
+then run the following command in a shell:  
+  ```
+  $ python manage.py test 
+  ``` 
