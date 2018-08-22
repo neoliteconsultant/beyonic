@@ -18,8 +18,8 @@ def sign_in(request):
         elif password is None:
             messages.error(request, "Password is required.")
         else:
-            user = authenticate(request, username=username, password=password)
-            #user = Account.objects.get(username=username)
+            #user = authenticate(request, username=username, password=password)
+            user = Account.objects.get(username=username)
 
             if user is not None:
 
@@ -27,7 +27,7 @@ def sign_in(request):
                     # Email exists
                     login(request, user)
                     messages.success(request, "Login successful")
-                    # https://pypi.org/project/django-two-factor-auth/
+                    #TODO:enable 2 factor authentication https://pypi.org/project/django-two-factor-auth/
                     # redirect to home page:
                     return HttpResponseRedirect(reverse('home:dashboard'))
                 else:
