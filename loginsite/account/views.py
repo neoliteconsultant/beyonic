@@ -18,8 +18,8 @@ def sign_in(request):
         elif password is None:
             messages.error(request, "Password is required.")
         else:
-            #user = authenticate(request, username=username, password=password)
-            user = Account.objects.get(username=username)
+            user = authenticate(request, username=username, password=password)
+            # user = Account.objects.get(username=username)
 
             if user is not None:
 
@@ -68,7 +68,8 @@ def register(request):
             messages.error(request, "Passwords do not match.")
         else:
             new_account = Account(username=username, first_name=first_name, last_name=last_name,
-                                  email=email, password=password)
+                                  email=email)
+            new_account.set_password(password)
             new_account.save()
 
             messages.success(request, 'Account registration successful')

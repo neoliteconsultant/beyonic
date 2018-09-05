@@ -19,19 +19,19 @@ the following tools
 
 2. Navigate to the root directory (loginsite) containing the manage.py file in a command line.
 
-3.  install django-two-factor-auth and its dependencies
+3. Install dependencies
     ```
-   $ pip install django-two-factor-auth
+   $ pip install -r requirements.txt
    ``` 
 
  
-3. Run the migrate command in a shell to create the database tables automatically.
+4. Run the migrate command in a shell to create the database tables automatically.
    ```
    $ python manage.py migrate 
    ``` 
    
    
-4. Execute the runserver command in a shell to start the development server.This will enable you to access
+5. Execute the runserver command in a shell to start the development server.This will enable you to access
    the web aplication in a browser.
    ```
    $ python manage.py runserver
@@ -39,7 +39,7 @@ the following tools
 
 
    
-5. Copy the following url in a browser
+6. Copy the following url in a browser
    
    http://localhost:8000/
    

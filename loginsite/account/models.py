@@ -1,8 +1,9 @@
 import threading
-from django.db import models
+
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.core.mail import EmailMultiAlternatives
-from django.conf import settings
+from django.db import models
 from django.template.loader import get_template
 
 
@@ -17,7 +18,7 @@ class AccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self,  username, email, password):
+    def create_superuser(self, username, email, password):
         """Creates and saves a super user with the given username and password."""
         user = self.model(
             username=username,
@@ -32,19 +33,19 @@ class AccountManager(BaseUserManager):
 class Account(AbstractUser):
     """Model representing a user."""
     username = models.CharField(max_length=40, unique=True, verbose_name="Username")
-    first_name = models.CharField(max_length=40, verbose_name="First name", null=True, blank=True)
-    last_name = models.CharField(max_length=40, verbose_name="Last name", null=True, blank=True)
-    email = models.EmailField(
-        verbose_name='Email Address',
-        max_length=60, null=True, blank=True
-    )
+    # first_name = models.CharField(max_length=40, verbose_name="First name", null=True, blank=True)
+    # last_name = models.CharField(max_length=40, verbose_name="Last name", null=True, blank=True)
+    # email = models.EmailField(
+    #     verbose_name='Email Address',
+    #     max_length=60, null=True, blank=True
+    # )
     is_first_time_login = models.BooleanField(default=True)
     created_on = models.DateTimeField('created on', auto_now_add=True)
 
-    objects = AccountManager()
-
+    # objects = AccountManager()
+    #
     USERNAME_FIELD = 'username'
-    EMAIL_FIELD = 'email'
+    # EMAIL_FIELD = 'email'
 
     def __str__(self):
         """String for representing the Model object."""
@@ -53,7 +54,7 @@ class Account(AbstractUser):
     def send_verification_email(self, subject):
         """Send an email for verifying email address added by user"""
         # email_thread = EmailThread(self.id, self.username, subject, self.email)
-        email_thread = EmailThread(self.id, "Tonym", subject, "neoliteconsultant@gmail.com")
+        email_thread = EmailThread(self.id, self.username, subject, "neoliteconsultant@gmail.com")
         email_thread.start()
 
 
