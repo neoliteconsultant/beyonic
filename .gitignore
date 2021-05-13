@@ -18,5 +18,4 @@ static/
 
 # log files
 logs/
-
-**/db.sqlite3/**
+db.sqlite3

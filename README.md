@@ -1,7 +1,7 @@
 
 
 ### About
-Loginsite is a web application that extends Django's inbuilt user authentication  
+beyonic is a web application that extends Django's inbuilt user authentication  
 
 
 ### Prerequisites
@@ -15,9 +15,9 @@ the following tools
 
 
 ### Installation
-1. Copy the project, loginsite, to any directory of your choice.
+1. Copy the project, beyonic, to any directory of your choice.
 
-2. Navigate to the root directory (loginsite) containing the manage.py file in a command line.
+2. Navigate to the root directory (beyonic) containing the manage.py file in a command line.
 
 3. Install dependencies
     ```
