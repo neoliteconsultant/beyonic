@@ -1,4 +1,4 @@
-Django==3.2.2
+Django==3.2.13
 django-two-factor-auth==1.13.1
 python-dotenv==0.10.5
 phonenumbers==8.12.22
